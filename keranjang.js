@@ -1,38 +1,37 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const keranjang = JSON.parse(localStorage.getItem('keranjang')) || [];
-  const container = document.getElementById('daftar-keranjang');
-  const totalEl = document.getElementById('total-harga');
-
-  let total = 0;
-
-  if (keranjang.length === 0) {
-    container.innerHTML = "<p>Keranjang kamu kosong.</p>";
-  } else {
-    keranjang.forEach((item, index) => {
-      const itemEl = document.createElement('div');
-      itemEl.innerHTML = `
-        <p>
-          ${item.nama} - Rp ${item.harga.toLocaleString()} x ${item.qty} = Rp ${(item.harga * item.qty).toLocaleString()}
-          <button onclick="hapusItem(${index})">Hapus</button>
-        </p>
-      `;
-      container.appendChild(itemEl);
-      total += item.harga * item.qty;
-    });
+function formatRupiah(angka) {
+    return "Rp " + angka.toLocaleString("id-ID");
   }
 
-  totalEl.textContent = "Rp " + total.toLocaleString();
-});
+  function tampilkanKeranjang() {
+    const keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+    const container = document.getElementById("daftar-keranjang");
+    const totalElement = document.getElementById("total-harga");
+    container.innerHTML = "";
+    let total = 0;
 
-function hapusItem(index) {
-  let keranjang = JSON.parse(localStorage.getItem('keranjang')) || [];
-  keranjang.splice(index, 1);
-  localStorage.setItem('keranjang', JSON.stringify(keranjang));
-  location.reload();
-}
+    keranjang.forEach((item, index) => {
+      const subtotal = item.harga * item.quantity;
+      total += subtotal;
 
-function checkout() {
-  alert('Terima kasih! Pesanan kamu sedang diproses...');
-  localStorage.removeItem('keranjang');
-  location.reload();
-}
+      const itemElement = document.createElement("div");
+      itemElement.className = "item-keranjang";
+      itemElement.innerHTML = `
+        ${item.nama} - ${formatRupiah(item.harga)} x ${item.quantity} = ${formatRupiah(subtotal)}
+        <button onclick="hapusItem(${index})">Hapus</button>
+      `;
+
+      container.appendChild(itemElement);
+    });
+
+    totalElement.textContent = formatRupiah(total);
+  }
+
+  function hapusItem(index) {
+    const keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+    keranjang.splice(index, 1);
+    localStorage.setItem("keranjang", JSON.stringify(keranjang));
+    tampilkanKeranjang();
+  }
+
+  tampilkanKeranjang();
+  

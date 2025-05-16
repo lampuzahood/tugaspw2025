@@ -1,47 +1,40 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const tambahButtons = document.querySelectorAll('.btn-tambah');
-  const beliButtons = document.querySelectorAll('.btn-beli');
+function updateKeranjangCount() {
+    const keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+    document.getElementById("keranjang-count").textContent = keranjang.length;
+  }
 
   function tambahKeKeranjang(nama, harga) {
-    let keranjang = JSON.parse(localStorage.getItem('keranjang')) || [];
+  const keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+  const index = keranjang.findIndex(item => item.nama === nama);
 
-    // Cek apakah produk sudah ada di keranjang
-    const existing = keranjang.find(item => item.nama === nama);
-    if (existing) {
-      existing.qty += 1;
-    } else {
-      keranjang.push({ nama, harga: parseInt(harga), qty: 1 });
-    }
-
-    localStorage.setItem('keranjang', JSON.stringify(keranjang));
-    updateNotifKeranjang(); // update angka notifikasi
+  if (index > -1) {
+    keranjang[index].quantity += 1;
+  } else {
+    keranjang.push({ nama, harga, quantity: 1 });
   }
 
-  tambahButtons.forEach(button => {
-    button.addEventListener('click', function () {
-      const nama = this.getAttribute('data-nama');
-      const harga = this.getAttribute('data-harga');
+  localStorage.setItem("keranjang", JSON.stringify(keranjang));
+  updateKeranjangCount();
+  alert(`${nama} berhasil ditambahkan ke keranjang.`);
+}
+
+
+  document.querySelectorAll(".btn-tambah").forEach(button_tambah => {
+    button_tambah.addEventListener("click", function () {
+      const nama = this.getAttribute("data-nama");
+      const harga = parseInt(this.getAttribute("data-harga"));
       tambahKeKeranjang(nama, harga);
-      alert(`${nama} ditambahkan ke keranjang.`);
     });
   });
 
-  beliButtons.forEach(button => {
-    button.addEventListener('click', function () {
-      const nama = this.getAttribute('data-nama');
-      const harga = this.getAttribute('data-harga');
+  document.querySelectorAll(".btn-beli").forEach(button_beli => {
+    button_beli.addEventListener("click", function () {
+      const nama = this.getAttribute("data-nama");
+      const harga = parseInt(this.getAttribute("data-harga"));
       tambahKeKeranjang(nama, harga);
-      window.location.href = 'keranjang.html';
+      window.location.href = "keranjang.html";
     });
   });
 
-  // Notifikasi angka jumlah keranjang
-  function updateNotifKeranjang() {
-    const icon = document.getElementById('keranjang-count');
-    const keranjang = JSON.parse(localStorage.getItem('keranjang')) || [];
-    const totalQty = keranjang.reduce((sum, item) => sum + item.qty, 0);
-    icon.textContent = totalQty;
-  }
-
-  updateNotifKeranjang(); // inisialisasi saat halaman dibuka
-});
+  // Update keranjang saat halaman dimuat
+  updateKeranjangCount();

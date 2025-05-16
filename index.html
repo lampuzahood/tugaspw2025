@@ -34,19 +34,10 @@
     </nav>
   </div>
 </header>
-
-
   <section class="hero">
     <div class="container">
       <h2>Temukan Skins Menarik</h2>
       <p>Produk terbaik, desain modern, dan pengalaman belanja tanpa batas.</p>
-    </div>
-  </section>
-
-
-  <section class="banner">
-    <div class="container">
-      <img src="https://down-tx-id.img.susercontent.com/id-11134210-7rasm-m25lwtv1vw5m80.webp" alt="Banner Utama" class="banner-img">
     </div>
   </section>
 
@@ -90,6 +81,11 @@
       </div>
   </section>
 
+  <section class="banner">
+    <div class="container">
+      <img src="https://down-tx-id.img.susercontent.com/id-11134210-7rasm-m25lwtv1vw5m80.webp" alt="Banner Utama" class="banner-img">
+    </div>
+
   <section class="statistik container">
   <h2 class="statistik-title">Statistik Toko</h2>
   <div class="statistik-grid">
@@ -98,20 +94,20 @@
     <div class="statistik-card">
       <h3 class="statistik-number">5000+</h3>
       <p class="statistik-label">Penjualan</p>
+      <button class="statistik-btn" onclick="tampilkanChart('penjualanChartContainer')">Lihat Detail</button>
       <div class="chart-container" id="penjualanChartContainer" style="display:none;">
         <canvas id="penjualanChart" width="300" height="200"></canvas>
       </div>
-      <button class="statistik-btn" onclick="tampilkanChart('penjualanChartContainer')">Lihat Detail</button>
     </div>
 
     <!-- Stok Produk -->
     <div class="statistik-card">
       <h3 class="statistik-number">1000+</h3>
       <p class="statistik-label">Stok Produk</p>
+      <button class="statistik-btn" onclick="tampilkanChart('stokChartContainer')">Lihat Stok</button>
       <div class="chart-container" id="stokChartContainer" style="display:none;">
         <canvas id="stokChart" width="300" height="200"></canvas>
       </div>
-      <button class="statistik-btn" onclick="tampilkanChart('stokChartContainer')">Lihat Stok</button>
     </div>
 
     <!-- Penilaian -->
@@ -311,9 +307,9 @@ function pindahHalaman(nomor) {
 </script>
 <footer>
     <div class="container">
-      <p>&copy; 2025 TokoFuturistik</p>
+      <p>&copy; 2025 FKLH SKINS</p>
     </div>
   </footer>
-
+  <script src="beli.js"></script>
 </body>
 </html>

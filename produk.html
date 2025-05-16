@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Produk | faklahskin store</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>𝑭𝑲𝑳𝑯 𝑺𝒌𝒊𝒏𝒔</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -16,12 +18,23 @@
         <li><a href="produk.html">Produk</a></li>
         <li><a href="tentang.html">Tentang</a></li>
         <li><a href="kontak.html">Kontak</a></li>
+        <a href="keranjang.html" style="position: relative;">
+              🛒 <span id="keranjang-count" style="
+                background: red;
+                color: white;
+                border-radius: 50%;
+                padding: 2px 6px;
+                font-size: 12px;
+                position: absolute;
+                top: -10px;
+                right: -10px;
+              ">0</span>
+            </a>
       </ul>
     </nav>
   </div>
 </header>
-
-  <section class="categories container">
+  <section class="categories-container">
   <h3 class="kategori-title">Pilih Kategori Produk</h3>
   <p class="kategori-subtitle">Temukan produk sesuai kebutuhanmu.</p>
   <div class="category-grid">
@@ -34,9 +47,6 @@
     <button class="category-btn" data-category="laptop">Laptop</button>
   </div>
 </section>
-
- 
-  <div class="container">
     <div class="product-category handphone-category">
   <h4 class="category-title">Handphone</h4>
   <div class="product-grid">
@@ -45,38 +55,45 @@
       <img src="https://down-tw.img.susercontent.com/file/id-11134207-6ke1k-lr2mkbwwvvt912" alt="Handphone 1">
       <h4>SAMSUNG S24 ULTRA</h4>
       <p class="price">Rp 40.000,00</p>
-      <button>Beli</button>
+      <button class="btn-tambah" data-nama="SAMSUNG S24 ULTRA" data-harga="52000">Tambah</button>
+      <button class="btn-beli" data-nama="SAMSUNG S24 ULTRA" data-harga="52000">Beli</button>
     </div>
+
     <div class="product-card" data-category="handphone">
       <img src="https://down-id.img.susercontent.com/file/id-11134207-6ke1k-lq24x606zz2d6a@resize_w450_nl.webp" alt="Handphone 2">
       <h4>APPLE 13 EDITION</h4>
       <p class="price">Rp 42.999,00</p>
-      <button>Beli</button>
+      <button class="btn-tambah" data-nama="SAMSUNG S24 ULTRA" data-harga="52000">Tambah</button>
+      <button class="btn-beli" data-nama="SAMSUNG S24 ULTRA" data-harga="52000">Beli</button>
     </div>
+
     <div class="product-card" data-category="handphone">
       <img src="https://down-id.img.susercontent.com/file/id-11134207-7rbk8-m7xog5srvzeza5.webp" alt="Handphone 3">
       <h4>XIAOMI POCO F7 PRO</h4>
       <p class="price">Rp 40.000,00</p>
-      <button>Beli</button>
+      <button class="btn-tambah" data-nama="SAMSUNG S24 ULTRA" data-harga="52000">Tambah</button>
+      <button class="btn-beli" data-nama="SAMSUNG S24 ULTRA" data-harga="52000">Beli</button>
     </div>
     <div class="product-card" data-category="handphone">
       <img src="https://down-id.img.susercontent.com/file/id-11134207-7rbk2-m6wcavcf4uqve4.webp" alt="Handphone 4">
       <h4>XIAOMI REDMI NOTE 14 PRO+ 5G</h4>
       <p class="price">Rp 40.000,00</p>
-      <button>Beli</button>
+      <button class="btn-tambah" data-nama="SAMSUNG S24 ULTRA" data-harga="52000">Tambah</button>
+      <button class="btn-beli" data-nama="SAMSUNG S24 ULTRA" data-harga="52000">Beli</button>
     </div>
     <div class="product-card" data-category="handphone">
       <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98t-lylt49l4ojs00b@resize_w450_nl.webp" alt="Handphone 5">
       <h4>APPLE 12/13/14/15 PRO MAX</h4>
       <p class="price">Rp 3.800.000</p>
-      <button>Beli</button>
+      <button class="btn-tambah" data-nama="SAMSUNG S24 ULTRA" data-harga="52000">Tambah</button>
+      <button class="btn-beli" data-nama="SAMSUNG S24 ULTRA" data-harga="52000">Beli</button>
     </div>
     <div class="product-card" data-category="handphone">
-      <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98q-lyyjheijd7fi8a.webp
-" alt="Handphone 6">
+      <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98q-lyyjheijd7fi8a.webp" alt="Handphone 6">
       <h4>XIAOMI POCO F6</h4>
       <p class="price">Rp 40.000,00</p>
-      <button>Beli</button>
+      <button class="btn-tambah" data-nama="SAMSUNG S24 ULTRA" data-harga="52000">Tambah</button>
+      <button class="btn-beli" data-nama="SAMSUNG S24 ULTRA" data-harga="52000">Beli</button>
     </div>
   </div>
 </div>
@@ -89,7 +106,8 @@
       <img src="https://via.placeholder.com/300x200" alt="Vape 1">
       <h4>Vape Alpha</h4>
       <p class="price">Rp 750.000</p>
-      <button>Beli</button>
+      <button class="btn-tambah" data-nama="SAMSUNG S24 ULTRA" data-harga="52000">Tambah</button>
+      <button class="btn-beli" data-nama="SAMSUNG S24 ULTRA" data-harga="52000">Beli</button>
     </div>
   </div>
 </div>
@@ -102,7 +120,8 @@
       <img src="https://via.placeholder.com/300x200" alt="Drone">
       <h4>Drone 4K Ultra</h4>
       <p class="price">Rp 5.000.000</p>
-      <button>Beli</button>
+      <button class="btn-tambah" data-nama="SAMSUNG S24 ULTRA" data-harga="52000">Tambah</button>
+      <button class="btn-beli" data-nama="SAMSUNG S24 ULTRA" data-harga="52000">Beli</button>
     </div>
   </div>
 </div>
@@ -115,7 +134,8 @@
       <img src="https://via.placeholder.com/300x200" alt="Kamera">
       <h4>Canon EOS</h4>
       <p class="price">Rp 6.700.000</p>
-      <button>Beli</button>
+      <button class="btn-tambah" data-nama="SAMSUNG S24 ULTRA" data-harga="52000">Tambah</button>
+      <button class="btn-beli" data-nama="SAMSUNG S24 ULTRA" data-harga="52000">Beli</button>
     </div>
   </div>
 </div>
@@ -128,7 +148,8 @@
       <img src="https://via.placeholder.com/300x200" alt="Tablet">
       <h4>Galaxy Tab</h4>
       <p class="price">Rp 4.200.000</p>
-      <button>Beli</button>
+      <button class="btn-tambah" data-nama="SAMSUNG S24 ULTRA" data-harga="52000">Tambah</button>
+      <button class="btn-beli" data-nama="SAMSUNG S24 ULTRA" data-harga="52000">Beli</button>
     </div>
   </div>
 </div>
@@ -141,7 +162,8 @@
       <img src="https://via.placeholder.com/300x200" alt="Laptop">
       <h4>Laptop Pro 15"</h4>
       <p class="price">Rp 10.500.000</p>
-      <button>Beli</button>
+      <button class="btn-tambah" data-nama="SAMSUNG S24 ULTRA" data-harga="52000">Tambah</button>
+      <button class="btn-beli" data-nama="SAMSUNG S24 ULTRA" data-harga="52000">Beli</button>
     </div>
   </div>
 </div>
@@ -152,39 +174,36 @@
       <div class="product-card">
         <img src="https://down-tw.img.susercontent.com/file/id-11134207-6ke1k-lr2mkbwwvvt912" alt="Handphone">
         <h4>SAMSUNG S24 ULTRA</h4>
-        <p class="price">Rp 40.000</p>
-        <button>Beli</button>
+        <p class="price">Rp 40.000,00</p>
+        <button class="btn-tambah" data-nama="SAMSUNG S24 ULTRA" data-harga="40000">Tambah</button>
+        <button class="btn-beli" data-nama="SAMSUNG S24 ULTRA" data-harga="40000">Beli</button>
       </div>
+      
 
       <div class="product-card">
         <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98w-lq1kywa4yj7664" alt="Drone">
         <h4>DJI MAVIC 3 PRO</h4>
-        <p class="price">Rp 135.000</p>
-        <button>Beli</button>
+        <p class="price">Rp 135.000,00</p>
+        <button class="btn-tambah" data-nama="DJI MAVIC 3 PRO" data-harga="135000">Tambah</button>
+        <button class="btn-beli" data-nama="DJI MAVIC 3 PRO" data-harga="135000">Beli</button>
       </div>
 
       <div class="product-card">
         <img src="https://images.tokopedia.net/img/cache/900/VqbcmM/2024/12/19/eeba8a49-1486-4a8a-bdca-ba0181c5aa30.jpg" alt="Vape">
         <h4>HOTCIG R233</h4>
         <p class="price">Rp 38.999</p>
-        <button>Beli</button>
+        <button class="btn-tambah" data-nama="HOTCIG R233" data-harga="38999">Tambah</button>
+        <button class="btn-beli" data-nama="HOTCIG R233" data-harga="38999">Beli</button>
       </div>
 
       <div class="product-card">
         <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98s-lz1mc3rsryzicb@resize_w450_nl.webp" alt="Tab">
         <h4>INFINIX XPAD</h4>
         <p class="price">Rp 52.000</p>
-        <button>Beli</button>
-      </div>
+        <button class="btn-tambah" data-nama="SAMSUNG S24 ULTRA" data-harga="52000">Tambah</button>
+        <button class="btn-beli" data-nama="SAMSUNG S24 ULTRA" data-harga="52000">Beli</button>
     </div>
   </div>
-
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 TokoFuturistik</p>
-    </div>
-  </footer>
-
   <script>
     const buttons = document.querySelectorAll(".category-btn");
     const categories = document.querySelectorAll(".product-category");
@@ -206,7 +225,14 @@
     window.onload = () => {
       document.querySelector('.category-btn[data-category="all"]').click();
     };
-  </script>
 
+  </script>
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 FKLH SKINS</p>
+    </div>
+  </footer>
+  <script src="beli.js"></script>
 </body>
+
 </html>

@@ -1,16 +1,71 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Keranjang Belanja</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>𝑭𝑲𝑳𝑯 𝑺𝒌𝒊𝒏𝒔</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <header>
+    <div class="container">
+      <h1 class="logo">faklahskin store</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="produk.html">Produk</a></li>
+          <li><a href="tentang.html">Tentang</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+          <li>
+            <a href="keranjang.html" style="position: relative;">
+              🛒 <span id="keranjang-count" style="
+                background: red;
+                color: white;
+                border-radius: 50%;
+                padding: 2px 6px;
+                font-size: 12px;
+                position: absolute;
+                top: -10px;
+                right: -10px;
+              ">0</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="keranjang">
   <h1>Keranjang Belanja Kamu</h1>
   <div id="daftar-keranjang"></div>
-  <p><strong>Total: <span id="total-harga">Rp 0</span></strong></p>
-  <button onclick="checkout()">Checkout</button>
+  <div class="total-section">
+    <p><strong>Total:</strong> <span id="total-harga">Rp 0</span></p>
+  </div>
+  <button id="checkout-btn" onclick="checkout()">Checkout</button>
+</main>
 
-  <script src="keranjang.js"></script>
+<script>
+  function checkout() {
+    // Konfirmasi ke pengguna
+    alert("Terima kasih! Pesanan kamu sedang diproses.");
+
+    // Hapus tampilan item di keranjang
+    document.getElementById('daftar-keranjang').innerHTML = '';
+
+    // Setel ulang total harga
+    document.getElementById('total-harga').textContent = 'Rp 0';
+
+    // Hapus data keranjang dari localStorage (jika digunakan)
+    localStorage.removeItem('keranjang');
+
+    // (Opsional) Redirect ke halaman sukses
+    // window.location.href = 'sukses.html';
+  }
+</script>
+
+
+<script src="keranjang.js"></script>
 </body>
 </html>
