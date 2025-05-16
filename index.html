@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>𝑭𝑲𝑳𝑯 𝑺𝒌𝒊𝒏𝒔</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+  <div class="container">
+    <h1 class="logo">faklahskin store</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="produk.html">Produk</a></li>
+        <li><a href="tentang.html">Tentang</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+        <a href="keranjang.html" style="position: relative;">
+              🛒 <span id="keranjang-count" style="
+                background: red;
+                color: white;
+                border-radius: 50%;
+                padding: 2px 6px;
+                font-size: 12px;
+                position: absolute;
+                top: -10px;
+                right: -10px;
+              ">0</span>
+            </a>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+  <section class="hero">
+    <div class="container">
+      <h2>Temukan Skins Menarik</h2>
+      <p>Produk terbaik, desain modern, dan pengalaman belanja tanpa batas.</p>
+    </div>
+  </section>
+
+
+  <section class="banner">
+    <div class="container">
+      <img src="https://down-tx-id.img.susercontent.com/id-11134210-7rasm-m25lwtv1vw5m80.webp" alt="Banner Utama" class="banner-img">
+    </div>
+  </section>
+
+  <section class="products container">
+    <h3>Produk Populer</h3>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <img src="https://down-tw.img.susercontent.com/file/id-11134207-6ke1k-lr2mkbwwvvt912" alt="Handphone">
+        <h4>SAMSUNG S24 ULTRA</h4>
+        <p class="price">Rp 40.000,00</p>
+        <button class="btn-tambah" data-nama="SAMSUNG S24 ULTRA" data-harga="40000">Tambah</button>
+        <button class="btn-beli" data-nama="SAMSUNG S24 ULTRA" data-harga="40000">Beli</button>
+        <script src="beli.js"></script>
+      </div>
+      
+
+      <div class="product-card">
+        <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98w-lq1kywa4yj7664" alt="Drone">
+        <h4>DJI MAVIC 3 PRO</h4>
+        <p class="price">Rp 135.000,00</p>
+        <button class="btn-tambah" data-nama="DJI MAVIC 3 PRO" data-harga="135000">Tambah</button>
+        <button class="btn-beli" data-nama="DJI MAVIC 3 PRO" data-harga="135000">Beli</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.tokopedia.net/img/cache/900/VqbcmM/2024/12/19/eeba8a49-1486-4a8a-bdca-ba0181c5aa30.jpg" alt="Vape">
+        <h4>HOTCIG R233</h4>
+        <p class="price">Rp 38.999</p>
+        <button class="btn-tambah" data-nama="HOTCIG R233" data-harga="38999">Tambah</button>
+        <button class="btn-beli" data-nama="HOTCIG R233" data-harga="38999">Beli</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98s-lz1mc3rsryzicb@resize_w450_nl.webp" alt="Tab">
+        <h4>INFINIX XPAD</h4>
+        <p class="price">Rp 52.000</p>
+        <button class="btn-tambah" data-nama="SAMSUNG S24 ULTRA" data-harga="52000">Tambah</button>
+        <button class="btn-beli" data-nama="SAMSUNG S24 ULTRA" data-harga="52000">Beli</button>
+    </div>
+      </div>
+  </section>
+
+  <section class="statistik container">
+  <h2 class="statistik-title">Statistik Toko</h2>
+  <div class="statistik-grid">
+
+    <!-- Penjualan -->
+    <div class="statistik-card">
+      <h3 class="statistik-number">5000+</h3>
+      <p class="statistik-label">Penjualan</p>
+      <div class="chart-container" id="penjualanChartContainer" style="display:none;">
+        <canvas id="penjualanChart" width="300" height="200"></canvas>
+      </div>
+      <button class="statistik-btn" onclick="tampilkanChart('penjualanChartContainer')">Lihat Detail</button>
+    </div>
+
+    <!-- Stok Produk -->
+    <div class="statistik-card">
+      <h3 class="statistik-number">1000+</h3>
+      <p class="statistik-label">Stok Produk</p>
+      <div class="chart-container" id="stokChartContainer" style="display:none;">
+        <canvas id="stokChart" width="300" height="200"></canvas>
+      </div>
+      <button class="statistik-btn" onclick="tampilkanChart('stokChartContainer')">Lihat Stok</button>
+    </div>
+
+    <!-- Penilaian -->
+    <div class="statistik-card">
+      <h3 class="statistik-number">1200+</h3>
+      <p class="statistik-label">Penilaian</p>
+      <button onclick="tampilkanKomentar()">Tampilkan Komentar</button>
+    <select id="filterRating" onchange="renderKomentar()">
+      <option value="all">Semua Rating</option>
+      <option value="5">★★★★★</option>
+      <option value="4">★★★★☆</option>
+      <option value="3">★★★☆☆</option>
+      <option value="2">★★☆☆☆</option>
+      <option value="1">★☆☆☆☆</option>
+    </select>
+
+
+<div id="komentarContainer" style="display: none; margin-top: 20px;">
+  <table class="tabel-komentar">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Rating</th>
+        <th>Komentar</th>
+      </tr>
+    </thead>
+    <tbody id="komentarTableBody" class="komentar-body"></tbody>
+  </table>
+
+  <div id="pagination" class="pagination-komentar"></div>
+</div>
+</div>
+</div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  let penjualanChartLoaded = false;
+  let stokChartLoaded = false;
+
+  function tampilkanChart(containerId) {
+    const container = document.getElementById(containerId);
+    const chartId = container.querySelector('canvas').id;
+
+    // Sembunyikan semua container lain
+    // document.querySelectorAll('.chart-container').forEach(el => {
+    //   if (el.id !== containerId) el.style.display = 'none';
+    // });
+
+    container.style.display = container.style.display === 'block' ? 'none' : 'block';
+
+    // Inisialisasi chart hanya sekali
+    if (chartId === 'penjualanChart' && !penjualanChartLoaded) {
+      const ctx = document.getElementById(chartId).getContext('2d');
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun' , 'Juli' , 'Agust' , 'Sep' , 'Okt' , 'Nov' , 'Des'],
+          datasets: [{
+            label: 'Jumlah Penjualan',
+            data: [500, 700, 800, 600, 900, 1200, 1645, 2120, 1800, 2000, 3029, 2257],
+            backgroundColor: 'rgba(54, 162, 235, 0.6)'
+          }]
+        }
+      });
+      penjualanChartLoaded = true;
+    }
+
+    if (chartId === 'stokChart' && !stokChartLoaded) {
+      const ctx = document.getElementById(chartId).getContext('2d');
+      new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels: ['Handphone', 'Vape', 'Drone', 'Kamera', 'Tab', 'Laptop'],
+          datasets: [{
+            label: 'Stok Produk',
+            data: [120, 80, 60, 90, 70, 130],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.6)',
+              'rgba(255, 206, 86, 0.6)',
+              'rgba(75, 192, 192, 0.6)',
+              'rgba(153, 102, 255, 0.6)',
+              'rgba(255, 159, 64, 0.6)',
+              'rgba(54, 162, 235, 0.6)'
+            ]
+          }]
+        }
+      });
+      stokChartLoaded = true;
+    }
+  }
+
+
+  const komentarData = {
+  usernames: [
+    'AndiSaputra', 'SitiNurhaliza', 'BudiSantoso', 'RinaAnggraini', 'DewiLestari',
+    'FajarHidayat', 'WulanSari', 'HendraPratama', 'NinaKusuma', 'AgusWijaya',
+    'DinaPermata', 'ToniGunawan', 'MayaFitriani', 'RizkyAnanda', 'LiaKartika',
+    'ImamSetiawan', 'DesiAmelia', 'YusufRamadhan', 'AyuNingsih', 'BagusHutama',
+    'FitriYani', 'RezaPutra', 'MegaCahyani', 'IqbalAlamsyah', 'DediKurniawan',
+    'NoviSusanti', 'GalihNugroho', 'CitraMelati', 'EkoSaputro', 'RaraWidya'
+  ],
+  comments: [
+    "Produk sangat bagus dan pengirimannya cepat!",
+    "Kualitas memuaskan, harga terjangkau.",
+    "Saya sangat puas dengan layanan toko ini.",
+    "Akan beli lagi, recommended seller!",
+    "Barang sesuai deskripsi dan cepat sampai.",
+    "Respon penjual cepat dan ramah.",
+    "Packing aman, barang selamat sampai.",
+    "Top banget pelayanannya!",
+    "Barang original dan bergaransi.",
+    "Cocok untuk hadiah juga!",
+    "Sangat direkomendasikan!",
+    "Barang baru, bukan bekas. Terpercaya.",
+    "Harga bersaing dengan kualitas tinggi.",
+    "Sesuai ekspektasi, puas sekali.",
+    "Sistem pemesanan mudah dan cepat."
+  ],
+  generateKomentar() {
+    const komentar = [];
+    const usedNames = new Set();
+    while (komentar.length < 30) {
+      const username = this.usernames[Math.floor(Math.random() * this.usernames.length)];
+      if (!usedNames.has(username)) {
+        usedNames.add(username);
+        const rating = Math.floor(Math.random() * 5) + 1;
+        komentar.push({
+          username,
+          rating,
+          stars: '★'.repeat(rating) + '☆'.repeat(5 - rating),
+          text: this.comments[Math.floor(Math.random() * this.comments.length)]
+        });
+      }
+    }
+    return komentar;
+  }
+};
+
+let semuaKomentar = [];
+let komentarPerHalaman = 5;
+let halamanAktif = 1;
+
+function tampilkanKomentar() {
+  const container = document.getElementById('komentarContainer');
+  const visible = container.style.display === 'block';
+  container.style.display = visible ? 'none' : 'block';
+
+  if (!visible) {
+    semuaKomentar = komentarData.generateKomentar();
+    halamanAktif = 1;
+    renderKomentar();
+  }
+}
+
+function renderKomentar() {
+  const tbody = document.getElementById('komentarTableBody');
+  const filterValue = document.getElementById('filterRating').value;
+
+  let filtered = filterValue === 'all'
+    ? semuaKomentar
+    : semuaKomentar.filter(k => k.rating == filterValue);
+
+  const start = (halamanAktif - 1) * komentarPerHalaman;
+  const end = start + komentarPerHalaman;
+  const halamanKomentar = filtered.slice(start, end);
+
+  tbody.innerHTML = halamanKomentar.map(k => `
+    <tr>
+      <td>${k.username}</td>
+      <td>${k.stars}</td>
+      <td>${k.text}</td>
+    </tr>
+  `).join('');
+
+  renderPagination(filtered.length);
+}
+
+function renderPagination(totalData) {
+  const totalHalaman = Math.ceil(totalData / komentarPerHalaman);
+  const pagination = document.getElementById('pagination');
+  let buttons = '';
+
+  for (let i = 1; i <= totalHalaman; i++) {
+    buttons += `<button onclick="pindahHalaman(${i})" ${i === halamanAktif ? 'style="font-weight:bold;"' : ''}>${i}</button> `;
+  }
+
+  pagination.innerHTML = buttons;
+}
+
+function pindahHalaman(nomor) {
+  halamanAktif = nomor;
+  renderKomentar();
+}
+
+
+</script>
+<footer>
+    <div class="container">
+      <p>&copy; 2025 TokoFuturistik</p>
+    </div>
+  </footer>
+
+</body>
+</html>
